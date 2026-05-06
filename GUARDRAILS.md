@@ -6,7 +6,7 @@
 - About to delete any database table or column
 - About to modify Row Level Security policies
 - About to add, change, or remove environment variables
-- About to change Next.js middleware (middleware.ts)
+- About to change Next.js middleware (proxy.ts)
 - About to install a new npm package with a known security vulnerability
 - Build fails more than 3 times on the same file — stop and report
 
@@ -15,6 +15,9 @@
 - DO NOT use `cookies()` without `await` in Next.js 14 App Router — it's async
 - DO NOT create client components at the page level — keep pages as server components and extract interactive parts into child client components
 - DO NOT use `router.refresh()` after Supabase auth operations — use `revalidatePath()` from server actions instead
+- DO NOT use uuid_generate_v4() — use gen_random_uuid() (native PG v13+)
+- DO NOT create or reference middleware.ts — this project uses proxy.ts
+- DO NOT use the uuid-ossp extension — it's not enabled on this Supabase project
 
 ## Recovery Instructions
 If the agent gets stuck in a loop:

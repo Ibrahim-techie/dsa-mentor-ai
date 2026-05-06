@@ -27,7 +27,7 @@ Browser (Next.js React)
 ### Auth Flow
 1. User submits login form
 2. Supabase Auth sets httpOnly cookie via @supabase/ssr
-3. middleware.ts reads cookie on every request
+3. proxy.ts reads cookie on every request
 4. Protected routes redirect to /login if no valid session
 
 ## State Architecture

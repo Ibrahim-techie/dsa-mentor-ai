@@ -32,7 +32,7 @@ You are an expert senior full-stack TypeScript developer specializing in Next.js
 
 ## File Ownership — Agent Scope Boundaries
 - Agent may freely create/edit: app/, components/, lib/, hooks/, types/, styles/
-- Agent must ask before modifying: supabase/migrations/, AGENTS.md, GEMINI.md, .env.local
+- Agent must ask before modifying: supabase/migrations/, AGENTS.md, GEMINI.md, .env.local,proxy.ts
 - Agent must NEVER touch: .git/, node_modules/, next.config.js (without asking)
 
 ## Naming Conventions

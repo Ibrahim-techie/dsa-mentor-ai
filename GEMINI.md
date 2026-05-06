@@ -4,7 +4,7 @@
 Use Gemini 3 Pro for all tasks in this project.
 
 ## Project Context
-DSA Mentor AI is a Next.js 14 App Router application. The codebase uses TypeScript strict mode throughout. Supabase handles authentication and the PostgreSQL database. The UI is built with Tailwind CSS and shadcn/ui components.
+DSA Mentor AI is a Next.js 16.2.4 App Router application. The codebase uses TypeScript strict mode throughout. Supabase handles authentication and the PostgreSQL database. The UI is built with Tailwind CSS and shadcn/ui components.
 
 ## Antigravity Behavior
 - Always show an implementation plan as an artifact BEFORE writing code for any feature larger than a single component

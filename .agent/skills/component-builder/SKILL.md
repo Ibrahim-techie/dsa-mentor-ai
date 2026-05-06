@@ -1,0 +1,1 @@
+<!-- SKILL: component-builder (placeholder) -->

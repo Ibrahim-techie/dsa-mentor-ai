@@ -25,8 +25,16 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>{children}</Providers>
         <Toaster
-        richColors
-        position='bottom-right' />
+          theme="dark"
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              background: 'rgb(15 23 42)',
+              border: '1px solid rgb(30 41 59)',
+              color: 'rgb(248 250 252)',
+            },
+          }}
+        />
         </body>
     </html>
   )

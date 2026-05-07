@@ -9,6 +9,7 @@
 | **`gen_random_uuid()` over `uuid-ossp`** | Supabase migration threw an error when using `uuid_generate_v4()`. | **Accepted.** Modified initial schema to use `gen_random_uuid()`, the native PostgreSQL v13+ UUID generator. |
 | **Next.js Middleware Rename** | Next.js 16.2.4 threw a deprecation warning for `middleware.ts`. | **Accepted.** Renamed to `proxy.ts`. Must ensure Supabase `@supabase/ssr` functions perfectly within `proxy.ts`. |
 | **Supabase Local vs Remote Setup** | MCP local authentication issues prevented local DB spin up. | **Accepted.** Connected CLI directly to remote branch and pushed schema/seed data directly. |
+| **Tailwind v4 Setup** | Next.js 16 defaults to Tailwind v4, replacing tailwind.config.ts with inline CSS. | **Accepted.** Preserved Tailwind v4 structure. Custom colors defined directly as `oklch()` in `@theme inline` in `globals.css`. |
 
 ## Future Refactor Notes
 - Generic Supabase Error Handler needed for API routes to streamline `{ data, error }` returns.

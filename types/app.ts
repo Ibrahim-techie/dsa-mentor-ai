@@ -1,12 +1,14 @@
-import type { Difficulty, Platform, Topic, ProblemStatus } from '@/lib/constants'
+import type { Topic } from '@/lib/constants'
 
 export interface Problem {
   id: string
   title: string
-  platform: Platform
-  difficulty: Difficulty
-  topic: Topic
-  link: string
+  platform: string
+  difficulty: string
+  topic_id: number
+  topic_name: string
+  link: string | null
+  description: string | null
   is_must_do: boolean
   created_at: string
 }
@@ -24,7 +26,8 @@ export interface Submission {
   id: string
   user_id: string
   problem_id: string
-  status: ProblemStatus
+  status: string
+  is_favourite: boolean
   time_taken_minutes: number | null
   notes: string | null
   created_at: string
@@ -38,9 +41,9 @@ export interface UserStats {
   hard_solved: number
   current_streak: number
   longest_streak: number
-  weak_topics: Topic[]
+  weak_topics: string[]
   accuracy_percent: number
-  last_active: string
+  last_active: string | null
 }
 
 export interface StreakDay {

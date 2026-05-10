@@ -20,6 +20,7 @@ dsa-mentor-ai/
 │   │   └── layout.tsx
 │   ├── api/                # Client Component mutation endpoints (Next.js API Routes)
 │   │   ├── auth/callback/route.ts
+│   │   ├── execute/route.ts
 │   │   ├── problems/route.ts
 │   │   ├── stats/route.ts
 │   │   └── submissions/route.ts
@@ -45,6 +46,7 @@ dsa-mentor-ai/
 │   ├── constants.ts
 │   └── utils.ts            # Tailwind / generic helpers
 ├── stores/                 # Zustand global state (Client-side UI State)
+│   ├── editorStore.ts
 │   ├── problemFilterStore.ts
 │   └── uiStore.ts
 ├── supabase/               # Database Configuration

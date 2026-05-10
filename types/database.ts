@@ -74,6 +74,65 @@ export type Database = {
           },
         ]
       }
+      execution_runs: {
+        Row: {
+          code: string
+          compile_out: string | null
+          created_at: string
+          id: string
+          language: string
+          memory_kb: number | null
+          problem_id: string
+          status_desc: string
+          status_id: number
+          stderr: string | null
+          stdin: string | null
+          stdout: string | null
+          time_ms: number | null
+          user_id: string
+        }
+        Insert: {
+          code: string
+          compile_out?: string | null
+          created_at?: string
+          id?: string
+          language: string
+          memory_kb?: number | null
+          problem_id: string
+          status_desc: string
+          status_id: number
+          stderr?: string | null
+          stdin?: string | null
+          stdout?: string | null
+          time_ms?: number | null
+          user_id: string
+        }
+        Update: {
+          code?: string
+          compile_out?: string | null
+          created_at?: string
+          id?: string
+          language?: string
+          memory_kb?: number | null
+          problem_id?: string
+          status_desc?: string
+          status_id?: number
+          stderr?: string | null
+          stdin?: string | null
+          stdout?: string | null
+          time_ms?: number | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "execution_runs_problem_id_fkey"
+            columns: ["problem_id"]
+            isOneToOne: false
+            referencedRelation: "problems"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       problems: {
         Row: {
           created_at: string
@@ -144,9 +203,12 @@ export type Database = {
       }
       submissions: {
         Row: {
+          code: string | null
           created_at: string
           id: string
           is_favourite: boolean
+          language: string | null
+          last_run_at: string | null
           notes: string | null
           problem_id: string
           status: string
@@ -155,9 +217,12 @@ export type Database = {
           user_id: string
         }
         Insert: {
+          code?: string | null
           created_at?: string
           id?: string
           is_favourite?: boolean
+          language?: string | null
+          last_run_at?: string | null
           notes?: string | null
           problem_id: string
           status?: string
@@ -166,9 +231,12 @@ export type Database = {
           user_id: string
         }
         Update: {
+          code?: string | null
           created_at?: string
           id?: string
           is_favourite?: boolean
+          language?: string | null
+          last_run_at?: string | null
           notes?: string | null
           problem_id?: string
           status?: string

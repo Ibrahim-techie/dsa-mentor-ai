@@ -9,6 +9,8 @@ const upsertSchema = z.object({
   time_taken_minutes: z.number().int().positive().nullable().optional(),
   notes: z.string().max(2000).nullable().optional(),
   is_favourite: z.boolean().optional(),
+  code: z.string().max(50_000).optional().nullable(),
+  language: z.string().optional().nullable(),
 })
 
 export async function GET() {

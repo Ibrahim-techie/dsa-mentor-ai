@@ -24,7 +24,7 @@ You are an expert senior full-stack TypeScript developer specializing in Next.js
 12. ALWAYS prefer free-tier-friendly implementations during MVP development unless explicitly instructed otherwise
 13. Minimize unnecessary database writes, polling frequency, storage growth, and external API consumption
 14. Avoid architectures that assume paid infrastructure scaling during early phases
-
+15.Execution APIs must remain free-tier-friendly. Avoid excessive polling, repeated execution spam, or unnecessary runtime requests.
 ## Tech Stack Preferences
 - Components: shadcn/ui first, custom Tailwind second
 - Forms: react-hook-form + Zod

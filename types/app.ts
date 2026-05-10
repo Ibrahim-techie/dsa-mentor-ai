@@ -31,6 +31,8 @@ export interface Submission {
   time_taken_minutes: number | null
   notes: string | null
   created_at: string
+  code?: string | null
+  language?: string | null
 }
 
 export interface UserStats {
@@ -61,4 +63,33 @@ export interface TopicProgress {
 export interface ApiResponse<T> {
   data: T | null
   error: string | null
+}
+
+// ─── Code Execution ───────────────────────────────────────────
+
+export interface ExecutionResult {
+  statusId:   number
+  statusDesc: string
+  stdout:     string | null
+  stderr:     string | null
+  compileOut: string | null
+  timeMs:     number | null
+  memoryKb:   number | null
+}
+
+export interface ExecutionRun {
+  id:         string
+  user_id:    string
+  problem_id: string
+  code:       string
+  language:   string
+  stdin:      string | null
+  stdout:     string | null
+  stderr:     string | null
+  compile_out:string | null
+  status_id:  number
+  status_desc:string
+  time_ms:    number | null
+  memory_kb:  number | null
+  created_at: string
 }

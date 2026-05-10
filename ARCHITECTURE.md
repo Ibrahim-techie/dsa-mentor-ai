@@ -14,7 +14,7 @@ Browser (Next.js React)
 ## Request Flow
 
 ### Page Load (Server Component)
-1. middleware.ts checks Supabase session → redirects if unauthenticated
+1. proxy.ts checks Supabase session → redirects if unauthenticated
 2. Server component fetches initial data directly via Supabase SSR client
 3. React renders with pre-fetched data (no loading flash)
 

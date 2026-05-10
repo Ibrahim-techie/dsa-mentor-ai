@@ -17,7 +17,9 @@
 ## Future Refactor Notes
 - Generic Supabase Error Handler needed for API routes to streamline `{ data, error }` returns.
 - Check `proxy.ts` behavior with Supabase cookies if any silent session issues arise.
-| Zod error property  ZodError uses `.issues` not `.errors` in 
-current Zod version. Always use `parsed.error.issues[0].message` 
-in API routes. |
+| Zod error property | ZodError uses `.issues` not `.errors` in current Zod version. Always use `parsed.error.issues[0].message` in API routes. |
 | Infrastructure strategy | The project prioritizes free-tier-compatible architecture during MVP development. All systems should minimize paid dependencies, excessive DB writes, bandwidth-heavy operations, and unnecessary compute usage until real user traction exists. |
+| execution_runs retention | execution_runs is treated as ephemeral execution telemetry. Old runs may later be pruned automatically to preserve free-tier database/storage limits. |
+| Execution provider abstraction | /api/execute routes to Piston (dev) or Judge0 (prod) based on EXECUTION_PROVIDER env var. Frontend never knows which provider runs the code. Piston is free/unlimited; Judge0 used only in production. |
+| execution_runs vs submissions | Runs are cheap test executions — stored in execution_runs, never counted as solved. Submissions are explicit user actions — stored in submissions with code + language. |
+| Draft persistence | Code drafts saved to localStorage keyed by draft:{problemId}:{languageId}. Zero DB writes until user hits Submit. |

@@ -21,6 +21,10 @@ You are an expert senior full-stack TypeScript developer specializing in Next.js
 9. ALWAYS use Zod for all form validation and API input validation
 10. ALWAYS use server components by default — only add `"use client"` when you need interactivity or browser APIs
 11. ALWAYS update PROJECT_STATE.md after major implementation progress, DECISIONS.md after architectural tradeoffs or design choices, and SYSTEM_TREE.md after significant structural, routing, or component hierarchy changes
+12. ALWAYS prefer free-tier-friendly implementations during MVP development unless explicitly instructed otherwise
+13. Minimize unnecessary database writes, polling frequency, storage growth, and external API consumption
+14. Avoid architectures that assume paid infrastructure scaling during early phases
+
 ## Tech Stack Preferences
 - Components: shadcn/ui first, custom Tailwind second
 - Forms: react-hook-form + Zod

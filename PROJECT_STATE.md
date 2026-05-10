@@ -21,3 +21,11 @@
 ## Next Steps
 - Implement code execution workflow (Monaco Editor integration)
 - Handle AI response feedback logic
+
+## Stabilization Pass (Pre-Phase 2)
+- Dead imports removed
+- Route ownership verified (server = direct DB, client = API routes)
+- Duplicate auth guards removed
+- Dead components deleted: ProblemTable.tsx, ProblemSearch.tsx
+- All stubs given proper placeholders
+- Zero lint warnings, zero TypeScript errors

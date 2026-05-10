@@ -1,4 +1,4 @@
-import { redirect } from 'next/navigation'
+
 import { createClient } from '@/lib/supabase/server'
 import { Flame } from 'lucide-react'
 import { StatsCards }     from '@/components/dashboard/StatsCards'
@@ -11,7 +11,6 @@ export const metadata = { title: 'Dashboard — DSA Mentor AI' }
 export default async function DashboardPage() {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
-  if (!user) redirect('/login')
 
   const [
     { data: stats },
@@ -20,19 +19,19 @@ export default async function DashboardPage() {
     { data: streakHistory },
     { data: problems },
   ] = await Promise.all([
-    supabase.from('user_stats').select('*').eq('user_id', user.id).single(),
-    supabase.from('users_profile').select('*').eq('id', user.id).single(),
+    supabase.from('user_stats').select('*').eq('user_id', user!.id).single(),
+    supabase.from('users_profile').select('*').eq('id', user!.id).single(),
     supabase
       .from('submissions')
       .select('*, problems(*)')
-      .eq('user_id', user.id)
+      .eq('user_id', user!.id)
       .eq('status', 'solved')
       .order('updated_at', { ascending: false })
       .limit(5),
     supabase
       .from('streak_history')
       .select('date, problems_solved')
-      .eq('user_id', user.id)
+      .eq('user_id', user!.id)
       .order('date', { ascending: false })
       .limit(365),
     supabase.from('problems').select('topic_name, difficulty'),
@@ -67,12 +66,12 @@ export default async function DashboardPage() {
       <div className="grid gap-6 lg:grid-cols-2">
         <StreakHeatmap data={(streakHistory ?? []) as { date: string; problems_solved: number }[]} />
         <TopicProgress
-          submissions={(recentSubmissions ?? []) as any[]}
+          submissions={(recentSubmissions ?? []) as { problems: { topic_name: string } | null }[]}
           problems={(problems ?? []) as { topic_name: string; difficulty: string }[]}
         />
       </div>
 
-      <RecentActivity submissions={(recentSubmissions ?? []) as any[]} />
+      <RecentActivity submissions={(recentSubmissions ?? []) as { id: string; updated_at: string; problems: { id: string; title: string; difficulty: string; topic_name: string } | null }[]} />
     </div>
   )
 }

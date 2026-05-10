@@ -23,3 +23,8 @@
 | Execution provider abstraction | /api/execute routes to Piston (dev) or Judge0 (prod) based on EXECUTION_PROVIDER env var. Frontend never knows which provider runs the code. Piston is free/unlimited; Judge0 used only in production. |
 | execution_runs vs submissions | Runs are cheap test executions — stored in execution_runs, never counted as solved. Submissions are explicit user actions — stored in submissions with code + language. |
 | Draft persistence | Code drafts saved to localStorage keyed by draft:{problemId}:{languageId}. Zero DB writes until user hits Submit. |
+| Monaco dynamic import | Mandatory ssr:false — Monaco uses window/document directly. SSR crash is guaranteed without it. |
+| CodeEditor excluded from barrel | components/editor/index.ts does NOT export CodeEditor. Barrel exports trigger eager bundling. Monaco must remain lazily loaded via dynamic(). |
+| proxy.ts matcher expanded for Monaco | Added map|wasm|woff|woff2|ttf to exclusion pattern. Monaco ships worker/wasm/font assets that must not be intercepted by auth middleware. |
+| LanguageSelector draft-or-starter | On language change, LanguageSelector checks localStorage for a draft. If found, restores it. If not, loads STARTER_CODE for new language. Prevents stale code from previous language remaining in editor. |
+| ProblemEditorPanel useEffect deps | Includes setCode and setLanguageId in deps array (Zustand stable actions) rather than eslint-disable. Satisfies exhaustive-deps correctly. |

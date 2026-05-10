@@ -27,6 +27,8 @@ export function useUpsertSubmission() {
       is_favourite?: boolean
       notes?: string | null
       time_taken_minutes?: number | null
+      code?: string | null
+      language?: string | null
     }): Promise<Submission> => {
       const res = await fetch('/api/submissions', {
         method: 'POST',

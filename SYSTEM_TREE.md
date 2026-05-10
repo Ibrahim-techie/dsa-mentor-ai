@@ -30,6 +30,13 @@ dsa-mentor-ai/
 ├── components/             # React Components (shadcn + custom)
 │   ├── auth/               # LoginForm, SignupForm (Client Components)
 │   ├── dashboard/          # RecentActivity, StatsCards, StreakHeatmap, TopicProgress
+│   ├── editor/             # Code execution components
+│   │   ├── CodeEditor.tsx
+│   │   ├── EditorToolbar.tsx
+│   │   ├── LanguageSelector.tsx
+│   │   ├── OutputPanel.tsx
+│   │   ├── ProblemEditorPanel.tsx
+│   │   └── index.ts
 │   ├── layout/             # MobileNav, Navbar, Sidebar
 │   ├── problems/           # DifficultyBadge, ProblemFilters, ProblemRow, TopicSection
 │   ├── shared/             # EmptyState, ErrorBoundary, LoadingSpinner, Providers

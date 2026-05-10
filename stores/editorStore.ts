@@ -34,19 +34,15 @@ export const useEditorStore = create<EditorState>((set, get) => ({
   isRunning:  false,
   isDirty:    false,
 
-  setCode: (code) => {
+  setCode:(code) => {
     set({ code, isDirty: true })
   },
 
-  setLanguageId: (id) => {
-    const { loadDraft } = get()
-    // Will try to load existing draft, else load starter code
+  setLanguageId:(id) => {
     set({ languageId: id, output: null })
-    // We need the problemId — caller must invoke loadDraft after setLanguageId
   },
-
-  setOutput:    (output)    => set({ output }),
-  setIsRunning: (isRunning) => set({ isRunning }),
+  setOutput:(output) => set({ output }),
+  setIsRunning:(isRunning) => set({ isRunning }),
 
   loadDraft: (problemId, langId) => {
     const { languageId } = get()
